@@ -8,13 +8,14 @@ export const ResultContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const key = process.env.API_KEY;
   const getResults = async (url) => {
     setIsLoading(true);
 
     const response = await fetch(`${Baseurl}${url}`, {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "7aeebfcddemshf35ff4e883dd6adp1b6cc2jsn851b78246a28",
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
         "X-RapidAPI-Host": "google-search3.p.rapidapi.com",
       },
     });
